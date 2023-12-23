@@ -9,20 +9,19 @@ Fabric.js にはデフォルトで消しゴム機能が含まれないため、C
 ### リリース手順
 
 1. プロジェクトで使用したい Fabric.js のバージョンの [Git tag](https://github.com/chiron-inc/fabric.js/tags) から `{tag name}-erasing` という名前でブランチを切る. (例: `v5.3.1-erasing`)
-2. 1で作成したブランチの `package.json` 内の `build` コマンドの `exclude` オプションから `erasing` を削除する.
-    ```json
+2. 手順1で作成したブランチの `package.json` 内の `build` スクリプトの `exclude` オプションから `erasing` を削除する.
+    ```diff
     - "build": "node build.js modules=ALL requirejs exclude=gestures,accessors,erasing",
     + "build": "node build.js modules=ALL requirejs exclude=gestures,accessors",
     ```
 3. `npm run build` を実行し, `dist/` 配下の成果物に変更が加えられたことを確認する.
-4. 1で作成したブランチの README.md に、現在のデフォルトブランチの README.md の先頭からリリース手順までをコピーする.
+4. 手順1で作成したブランチの README.md に、現在のデフォルトブランチの `README.md`` の先頭からリリース手順までをコピーする.
 5. 編集した `package.json`, `README.md` および `dist/` 配下すべてを push する.
 6. 1で作成したブランチから GitHub Release を作成する. (タグ名はブランチ名に揃える)
 7. 1で作成したブランチを、このリポジトリのデフォルトブランチに設定する.
-8. プロジェクトの `package.json` で, `dependencies` > `fabric` のバージョンを次のように設定する. (各リリースの Assets の `Source code (tar.gz)` の URL)
-    ```json
-    "fabric": "https://github.com/chiron-inc/fabric.js/archive/refs/tags/{tag name}.tar.gz",
-    // 例: "fabric": "https://github.com/chiron-inc/fabric.js/archive/refs/tags/v5.3.1-erasing.tar.gz",
+8. プロジェクトの `package.json` で Fabric.js のバージョンを、手順6で作成したリリースの Assets の `Source code (tar.gz)` の URL に設定する.
+    ```
+    例: "fabric": "https://github.com/chiron-inc/fabric.js/archive/refs/tags/v5.3.1-erasing.tar.gz",
     ```
 
 ## Fabric.js
