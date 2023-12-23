@@ -1,3 +1,29 @@
+## Fabric.js (with erasing)
+
+### 本家との違い
+
+Fabric.js の通常のビルドに消しゴム機能を含めてビルドしたバージョンを配信するためのリポジトリです.
+
+Fabric.js にはデフォルトで消しゴム機能が含まれないため、Custom Build する必要があります.
+
+### リリース手順
+
+1. プロジェクトで使用したい Fabric.js のバージョンの [Git tag](https://github.com/chiron-inc/fabric.js/tags) から `{tag name}-erasing` という名前でブランチを切る. (例: `v5.3.1-erasing`)
+2. 1で作成したブランチの `package.json` 内の `build` コマンドの `exclude` オプションから `erasing` を削除する.
+    ```json
+    - "build": "node build.js modules=ALL requirejs exclude=gestures,accessors,erasing",
+    + "build": "node build.js modules=ALL requirejs exclude=gestures,accessors",
+    ```
+3. `npm run build` を実行し, `dist/` 配下の成果物に変更が加えられたことを確認する.
+4. 1で作成したブランチの README.md に、現在のデフォルトブランチの README.md の先頭からリリース手順までをコピーする.
+5. 編集した `package.json`, `README.md` および `dist/` 配下すべてを push する.
+6. 1で作成したブランチを、このリポジトリのデフォルトブランチに設定する.
+7. プロジェクトの `package.json` で, `dependencies` > `fabric` のバージョンを次のように設定する.
+    ```json
+    "fabric": "https://github.com/chiron-inc/fabric.js#{git branch name}",
+    // 例: "fabric": "https://github.com/chiron-inc/fabric.js#v5.3.1-erasing",
+    ```
+
 ## Fabric.js
 
 <!-- build/coverage status, climate -->
