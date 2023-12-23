@@ -17,7 +17,7 @@ Fabric.js にはデフォルトで消しゴム機能が含まれないため、C
 3. `npm run build` を実行し, `dist/` 配下の成果物に変更が加えられたことを確認する.
 4. 手順1で作成したブランチの README.md に、現在のデフォルトブランチの `README.md`` の先頭からリリース手順までをコピーする.
 5. 編集した `package.json`, `README.md` および `dist/` 配下すべてを push する.
-6. 1で作成したブランチから GitHub Release を作成する. (タグ名はブランチ名に揃える)
+6. 1で作成したブランチから GitHub Release を作成する. (タグ名はブランチ名と被らないように `{tag name}-with-erasing` に設定する)
 7. 1で作成したブランチを、このリポジトリのデフォルトブランチに設定する.
 8. プロジェクトの `package.json` で Fabric.js のバージョンを、手順6で作成したリリースの Assets の `Source code (tar.gz)` の URL に設定する.
     ```
