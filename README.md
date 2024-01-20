@@ -14,7 +14,7 @@ Fabric.js にはデフォルトで消しゴム機能が含まれないため、C
     - "build": "node build.js modules=ALL requirejs exclude=gestures,accessors,erasing",
     + "build": "node build.js modules=ALL requirejs exclude=gestures,accessors",
     ```
-3. `package.json` 内の `version` の末尾に `-erasing` を追加する (例: `5.3.1-erasing`)
+3. `package.json` 内の `version` の末尾に `-erasing` を追加する (例: `5.3.0-erasing`)
 4. `npm run build` を実行し, `dist/` 配下の成果物に変更が加えられたことを確認する.
 5. 手順1で作成したブランチの README.md に、現在のデフォルトブランチの `README.md`` の先頭からリリース手順までをコピーする.
 6. 編集した `package.json`, `README.md` および `dist/` 配下すべてを push する.
